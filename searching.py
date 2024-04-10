@@ -31,6 +31,19 @@ def linear_search(sequence, number):
             result["count"] = result["count"] + 1
     return result
 
+def pattern_search(sequence, pattern):
+    """
+    komentar
+    """
+    result = set()
+    for idx in range(len(sequence)):
+        if sequence[idx:idx+len(pattern)] == pattern:
+            result.add(idx)
+
+    return result
+
+        
+                    
 
 
 def main():
@@ -38,6 +51,9 @@ def main():
    print(unordered_data)
    dictionary = linear_search(unordered_data, 5)
    print(dictionary)
+   dna = read_data("sequential.json", "dna_sequence")
+   pattern = pattern_search(dna, "ATA")
+   print(pattern)
 
 if __name__ == '__main__':
     main()
