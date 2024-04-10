@@ -35,15 +35,20 @@ def pattern_search(sequence, pattern):
     """
     komentar
     """
-    result = set()
-    for idx in range(len(sequence)):
-        if sequence[idx:idx+len(pattern)] == pattern:
-            result.add(idx)
-
-    return result
-
-        
-                    
+    positions = set()
+    sequence_idx = 0
+    n = len(sequence)
+    m = len(pattern)
+    while sequence_idx < n - m:
+        pattern_idx = 0
+        while pattern_idx < m:
+            if sequence[sequence_idx + pattern_idx] != pattern[pattern_idx]:
+                break
+            pattern_idx += 1
+        if pattern_idx == m:
+            positions.add(sequence_idx + m // 2)
+        sequence_idx += 1
+    return positions
 
 
 def main():
