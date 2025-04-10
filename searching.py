@@ -18,6 +18,7 @@ def read_data(file_name, field):
     file_path = os.path.join(cwd_path, file_name)
     with open(file_path, mode="r") as json_file:
         data = json.load(json_file)
+
     return data[field]
 
 def linear_search(sequence, number):
